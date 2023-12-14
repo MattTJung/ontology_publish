@@ -7,11 +7,12 @@
 ex:Pattern1 a sh:NodeShape ;
 	sh:targetClass owl:Class ;
 	sh:property [
-      sh:path skos:definition ;
-      sh:qualifiedMinCount 1;
-      sh:qualifiedValueShape [
-		sh:datatype rdf:langString ;
-        sh:languageIn ( "en" ) ;
-      ] ;
-      sh:uniqueLang true ;
-	] .
+		sh:path skos:definition ;
+		sh:qualifiedMinCount 1 ;
+		sh:qualifiedValueShape [
+			sh:datatype rdf:langString ;
+			sh:languageIn ( "en" ) ;
+		] ;
+		sh:uniqueLang true ;
+	] ;
+.
