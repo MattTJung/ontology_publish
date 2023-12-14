@@ -1,0 +1,17 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ex: <http://example.org/shapes> .
+
+ex:Pattern1 a sh:NodeShape ;
+	sh:targetClass owl:Class ;
+	sh:property [
+      sh:path skos:definition ;
+      sh:qualifiedMinCount 1;
+      sh:qualifiedValueShape [
+		sh:datatype rdf:langString ;
+        sh:languageIn ( "en" ) ;
+      ] ;
+      sh:uniqueLang true ;
+	] .
