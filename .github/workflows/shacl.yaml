@@ -22,4 +22,4 @@ jobs:
 
            
            java -jar robot.jar reason --reasoner elk --input main/ontology.ttl --output ontology-reasoned.ttl
-           python3 -m pyshacl  -s main/shapes.ttl ontology-reasoned.ttl
+           python3 -m pyshacl -f human -s main/shapes.ttl ontology-reasoned.ttl
