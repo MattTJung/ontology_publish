@@ -20,10 +20,10 @@ jobs:
            #java -jar robot.jar --version
 
            
-           java -jar robot.jar reason --reasoner elk --input main/ontology.ttl --output ontology-reasoned.ttl
-           python3 -m pyshacl -f human -o ./shacl_report.txt -s main/shapes.ttl ontology-reasoned.ttl
+           java -jar robot.jar reason --reasoner elk --input main/ontology.ttl --output out_ontology-reasoned.ttl
+           python3 -m pyshacl -f turtle -o ./out_shacl_report.ttl -s main/shapes.ttl out_ontology-reasoned.ttl
     - name: Keep report as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: shacl_report
-        path: ./shacl_report.txt
+        name: report
+        path: ./out_*
