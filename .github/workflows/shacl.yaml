@@ -1,0 +1,25 @@
+name: shacl validation
+
+on:
+  push:
+    branches:
+    - develop-shapes
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        #ref: develop-shapes
+        path: main
+    - name: Validate against SHACL shape
+      run: |
+           #ls -la
+           pip install pyshacl
+
+           curl -L -o robot.jar "https://github.com/ontodev/robot/releases/latest/download/robot.jar"
+           #java -jar robot.jar --version
+
+           
+           java -jar robot.jar reason --reasoner elk --input main/ontology.ttl --output ontology-reasoned.ttl
+           python3 -m pyshacl  -s main/shapes.ttl ontology-reasoned.ttl
