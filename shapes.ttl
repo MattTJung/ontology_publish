@@ -22,28 +22,6 @@ ex:DefinitionPattern a sh:PropertyShape ;
 	] ;
 	sh:uniqueLang true .
 
-ex:LabelPattern a sh:PropertyShape ;
-	sh:path rdfs:label ;
-	sh:qualifiedMinCount 1 ;
-	sh:qualifiedValueShape [
-		sh:datatype rdf:langString ;
-		sh:languageIn (
-			"en"
-		) ;
-	] ;
-	sh:uniqueLang true .
-
-ex:PrefLabelPattern a sh:PropertyShape ;
-	sh:path skos:prefLabel ;
-	sh:qualifiedMinCount 1 ;
-	sh:qualifiedValueShape [
-		sh:datatype rdf:langString ;
-		sh:languageIn (
-			"en"
-		) ;
-	] ;
-	sh:uniqueLang true .
-
 ex:CurationStatusPattern a sh:PropertyShape ;
 	sh:path obo:IAO_0000114 ;
 	sh:minCount 1 .
@@ -55,9 +33,52 @@ ex:PatternClasses a sh:NodeShape ;
 				ex:CurationStatusPattern , 
 				ex:TermEditorPattern .
 
+ex:RdfsLabelPattern a sh:PropertyShape ;
+	sh:and ( 
+		[
+			sh:path rdfs:label ;
+			sh:qualifiedMinCount 1 ;
+			sh:qualifiedValueShape [
+				sh:datatype rdf:langString ;
+				sh:languageIn (
+					"en"
+				) ;
+			] ;
+			sh:uniqueLang true .
+		] 
+		[
+			sh:path rdfs:label ;
+			sh:minCount 1 .
+		]
+	) .
+
+ex:SkosLabelPattern a sh:PropertyShape ;
+	sh:and ( 
+		[
+			sh:path skos:prefLabel ;
+			sh:qualifiedMinCount 1 ;
+			sh:qualifiedValueShape [
+				sh:datatype rdf:langString ;
+				sh:languageIn (
+					"en"
+				) ;
+			] ;
+			sh:uniqueLang true .
+		] 
+		[
+			sh:path skos:prefLabel ;
+			sh:minCount 1 .
+		]
+	) .
+
+ex:ReqLabels a sh:ProperyShape ;
+	sh:or ( ex:RdfsLabelPattern ex:SkosLabelPattern ) ;
+	sh:name "Requirements for Labels"@en ;
+	sh:message "Requirements for Labels not met, at least one english rdfs:label or one english skos:prefLabel must be present."@en .
+
 ex:PatternObjectProperties a sh:NodeShape ;
 	sh:targetClass owl:ObjectProperty ;
 	sh:property ex:DefinitionPattern ,
-				ex:LabelPattern ,
+				ex:ReqLabels ,
 				ex:CurationStatusPattern , 
 				ex:TermEditorPattern .
