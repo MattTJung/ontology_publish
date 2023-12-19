@@ -5,19 +5,6 @@
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix ex: <http://example.org/shapes#> .
 
-ex:Pattern1 a sh:NodeShape ;
-	sh:targetClass owl:Class ;
-	sh:property [
-		sh:path skos:definition ;
-		sh:qualifiedMinCount 1 ;
-		sh:qualifiedValueShape [
-			sh:datatype rdf:langString ;
-			sh:languageIn ( "en" ) ;
-		] ;
-		sh:uniqueLang true ;
-	] ;
-.
-
 ex:TermEditorPattern a sh:PropertyShape ;
 	sh:path obo:IAO_0000117 ;
     sh:pattern "^PERSON:(.*)$" ;
@@ -34,8 +21,8 @@ ex:DefinitionPattern a sh:PropertyShape ;
 	] ;
 	sh:uniqueLang true .
 
-ex:DeDefinitionPattern a sh:PropertyShape ;
-	sh:path skos:definition ;
+ex:LabelPattern a sh:PropertyShape ;
+	sh:path skos:label ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedValueShape [
 		sh:datatype rdf:langString ;
@@ -49,14 +36,16 @@ ex:CurationStatusPattern a sh:PropertyShape ;
 	sh:path obo:IAO_0000114 ;
 	sh:minCount 1 .
 
-ex:Pattern1 a sh:NodeShape ;
+ex:PatternClasses a sh:NodeShape ;
 	sh:targetClass owl:Class ;
 	sh:property ex:DefinitionPattern , 
+				ex:LabelPattern ,
 				ex:CurationStatusPattern , 
 				ex:TermEditorPattern .
 
-ex:Pattern2 a sh:NodeShape ;
-	sh:targetClass owl:Class ;
-	sh:property ex:DeDefinitionPattern , 
+ex:PatternObjectProperties a sh:NodeShape ;
+	sh:targetClass owl:ObjectProperty ;
+	sh:property ex:DefinitionPattern ,
+				ex:LabelPattern ,
 				ex:CurationStatusPattern , 
 				ex:TermEditorPattern .
