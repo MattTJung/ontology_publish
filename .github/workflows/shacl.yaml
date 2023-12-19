@@ -11,16 +11,13 @@ jobs:
     - uses: actions/checkout@v3
       with:
         path: main
-    - name: Validate against SHACL shape
+    - name: Run reasoner
       run: |
-           #ls -la
-           pip install pyshacl
-
            curl -L -o robot.jar "https://github.com/ontodev/robot/releases/latest/download/robot.jar"
-           #java -jar robot.jar --version
-
-           
-           java -jar robot.jar reason --reasoner hermit --input main/ontology.ttl --output out_ontology-reasoned.ttl
+           java -jar robot.jar reason --reasoner elk --input main/ontology.ttl --output out_ontology-reasoned.ttl
+    - name: Validate against SHACL shapes
+      run: |
+           pip install pyshacl
            python3 -m pyshacl -f turtle -o ./out_shacl_report.ttl -s main/shapes.ttl out_ontology-reasoned.ttl
     - name: Keep report as artifact
       if: ${{ failure() }}
