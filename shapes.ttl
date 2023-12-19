@@ -16,3 +16,46 @@ ex:Pattern1 a sh:NodeShape ;
 		sh:uniqueLang true ;
 	] ;
 .
+
+ex:TermEditorPattern a sh:PropertyShape ;
+	sh:path obo:IAO_0000117 ;
+    sh:pattern "^PERSON:(.*)$" ;
+	sh:description "Make sure that \"term editor\" (IAO_0000117) is used with \"PERSON:*\""@en .
+
+ex:DefinitionPattern a sh:PropertyShape ;
+	sh:path skos:definition ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedValueShape [
+		sh:datatype rdf:langString ;
+		sh:languageIn (
+			"en"
+		) ;
+	] ;
+	sh:uniqueLang true .
+
+ex:DeDefinitionPattern a sh:PropertyShape ;
+	sh:path skos:definition ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedValueShape [
+		sh:datatype rdf:langString ;
+		sh:languageIn (
+			"de"
+		) ;
+	] ;
+	sh:uniqueLang true .
+
+ex:CurationStatusPattern a sh:PropertyShape ;
+	sh:path obo:IAO_0000114 ;
+	sh:minCount 1 .
+
+ex:Pattern1 a sh:NodeShape ;
+	sh:targetClass owl:Class ;
+	sh:property ex:DefinitionPattern , 
+				ex:CurationStatusPattern , 
+				ex:TermEditorPattern .
+
+ex:Pattern2 a sh:NodeShape ;
+	sh:targetClass owl:Class ;
+	sh:property ex:DeDefinitionPattern , 
+				ex:CurationStatusPattern , 
+				ex:TermEditorPattern .
