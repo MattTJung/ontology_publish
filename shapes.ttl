@@ -72,7 +72,7 @@ ex:SkosLabelPattern a sh:PropertyShape ;
 		]
 	) .
 
-ex:ReqLabels a sh:ProperyShape ;
+ex:ReqLabels a sh:PropertyShape ;
 	sh:or ( ex:RdfsLabelPattern ex:SkosLabelPattern ) ;
 	sh:name "Requirements for Labels"@en ;
 	sh:message "Requirements for Labels not met, at least one english rdfs:label or one english skos:prefLabel must be present."@en .
