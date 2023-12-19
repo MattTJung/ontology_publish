@@ -10,7 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        #ref: develop-shapes
         path: main
     - name: Validate against SHACL shape
       run: |
@@ -22,4 +21,9 @@ jobs:
 
            
            java -jar robot.jar reason --reasoner elk --input main/ontology.ttl --output ontology-reasoned.ttl
-           python3 -m pyshacl -f human -s main/shapes.ttl ontology-reasoned.ttl
+           python3 -m pyshacl -f human -o ./shacl_report.txt -s main/shapes.ttl ontology-reasoned.ttl
+    - name: Keep report as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: shacl_report
+        path: ./shacl_report.txt
