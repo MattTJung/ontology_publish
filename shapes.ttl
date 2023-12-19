@@ -45,11 +45,11 @@ ex:RdfsLabelPattern a sh:PropertyShape ;
 					"en"
 				) ;
 			] ;
-			sh:uniqueLang true .
+			sh:uniqueLang true ;
 		] 
 		[
 			sh:path rdfs:label ;
-			sh:minCount 1 .
+			sh:minCount 1 ;
 		]
 	) .
 
@@ -64,11 +64,11 @@ ex:SkosLabelPattern a sh:PropertyShape ;
 					"en"
 				) ;
 			] ;
-			sh:uniqueLang true .
+			sh:uniqueLang true ;
 		] 
 		[
 			sh:path skos:prefLabel ;
-			sh:minCount 1 .
+			sh:minCount 1 ;
 		]
 	) .
 
