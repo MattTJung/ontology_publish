@@ -1,4 +1,4 @@
-@prefix opt: <https://w3id.org/pmd/ont_pub_tmplt/> .
+@prefix : <https://w3id.org/pmd/ont_pub_tmplt/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -23,7 +23,7 @@
                            dcterms:bibliographicCitation """Doe J. (1960) Foo Ontology. Journal of Everything, 42(42), 3-42.""" .
 
 ###  https://example.org/example-ontology-stub/ExampleClassStub
-opt:ExampleClassStub rdf:type owl:Class ;
+:ExampleClassStub rdf:type owl:Class ;
                   skos:definition "An example Class"@en ;
                   rdfs:comment "An example Class"@en ;
                   rdfs:isDefinedBy <https://w3id.org/pmd/ont_pub_tmplt> ;
@@ -32,20 +32,20 @@ opt:ExampleClassStub rdf:type owl:Class ;
                   rdfs:label "Example Class Stub"@en .
 
 ### https://example.org/example-ontology-stub/exampleRelation
-opt:exampleRelation rdf:type owl:ObjectProperty ;
+:exampleRelation rdf:type owl:ObjectProperty ;
                  skos:definition "An example relation"@en ;
                  rdfs:label "Example Relation"@en ;
                  obo:IAO_0000114 obo:IAO_0000428 ;
                  obo:IAO_0000117 "PERSON: John Doe" ;
-                 rdfs:domain opt:ExampleClassStub ;
-                 rdfs:range opt:ExampleClassStub .
+                 rdfs:domain :ExampleClassStub ;
+                 rdfs:range :ExampleClassStub .
 
 ### https://example.org/example-ontology-stub/exampleInverseRelation
-opt:exampleInverseRelation rdf:type owl:ObjectProperty ;
+:exampleInverseRelation rdf:type owl:ObjectProperty ;
                         skos:definition "An example inverse relation"@en ;
                         rdfs:label "Example Inverse Relation"@en ;
                         obo:IAO_0000114 obo:IAO_0000428 ;
                         obo:IAO_0000117 "PERSON: John Doe" ;
-                        owl:inverseOf opt:exampleRelation ;
-                        rdfs:domain opt:ExampleClassStub ;
-                        rdfs:range opt:ExampleClassStub .
+                        owl:inverseOf :exampleRelation ;
+                        rdfs:domain :ExampleClassStub ;
+                        rdfs:range :ExampleClassStub .
