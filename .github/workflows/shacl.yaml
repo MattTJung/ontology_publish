@@ -22,8 +22,8 @@ jobs:
            
            java -jar robot.jar reason --reasoner hermit --input main/ontology.ttl --output out_ontology-reasoned.ttl
            python3 -m pyshacl -f turtle -o ./out_shacl_report.ttl -s main/shapes.ttl out_ontology-reasoned.ttl
-      continue-on-error: true
     - name: Keep report as artifact
+      if: ${{ failure() }}
       uses: actions/upload-artifact@v3
       with:
         name: report
