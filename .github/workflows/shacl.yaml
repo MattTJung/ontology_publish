@@ -3,7 +3,7 @@ name: shacl validation
 on:
   push:
     branches:
-    - develop-shapes
+    - develop_shapes
 jobs:
   deploy:
     runs-on: ubuntu-latest
