@@ -41,7 +41,17 @@ ex:LabelPattern a sh:PropertyShape ;
 
 ex:CurationStatusPattern a sh:PropertyShape ;
 	sh:path obo:IAO_0000114 ;
-    sh:class obo:IAO_0000078 ;
+	sh:or (
+      [ sh:hasValue obo:IAO_0000002 ]
+      [ sh:hasValue obo:IAO_0000120 ]
+	  [ sh:hasValue obo:IAO_0000121 ]
+	  [ sh:hasValue obo:IAO_0000122 ]
+      [ sh:hasValue obo:IAO_0000123 ]
+	  [ sh:hasValue obo:IAO_0000124 ]
+      [ sh:hasValue obo:IAO_0000125 ]
+	  [ sh:hasValue obo:IAO_0000423 ]
+      [ sh:hasValue obo:IAO_0000428 ]
+    );
 	sh:minCount 1 .
 
 ex:PatternClassesProperties a sh:NodeShape ;
