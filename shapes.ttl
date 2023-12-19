@@ -6,10 +6,7 @@
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ex: <http://example.org/shapes#> .
-
-ex:Target rdf:type owl:Restriction ;
-		  owl:onProperty rdfs:isDefinedBy ;
-		  owl:hasValue <https://w3id.org/pmd/ont_pub_tmplt> .
+@prefix opt: <https://w3id.org/pmd/ont_pub_tmplt/> .
 
 ex:TermEditorPattern a sh:PropertyShape ;
 	sh:path obo:IAO_0000117 ;
@@ -48,7 +45,7 @@ ex:CurationStatusPattern a sh:PropertyShape ;
 	sh:minCount 1 .
 
 ex:PatternClassesProperties a sh:NodeShape ;
-	sh:targetClass ex:Target, owl:ObjectProperty ;
+	sh:targetClass opt:ShaclTarget, owl:ObjectProperty ;
 	sh:property
     	ex:DefinitionPattern ,
         ex:LabelPattern ,

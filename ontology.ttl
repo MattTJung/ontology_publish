@@ -8,6 +8,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 
+opt:ShaclTarget rdf:type owl:Restriction ;
+		  owl:onProperty rdfs:isDefinedBy ;
+		  owl:hasValue <https://w3id.org/pmd/ont_pub_tmplt> .
+
 <https://w3id.org/pmd/ont_pub_tmplt> rdf:type owl:Ontology ;
                            owl:imports <http://purl.org/dc/terms> ;
                            dcterms:title "Ontology Publication Template for the PMD"@en ;
