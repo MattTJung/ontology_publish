@@ -27,7 +27,7 @@ ex:LabelPattern a sh:PropertyShape ;
 	sh:qualifiedValueShape [
 		sh:datatype rdf:langString ;
 		sh:languageIn (
-			"de"
+			"en"
 		) ;
 	] ;
 	sh:uniqueLang true .
