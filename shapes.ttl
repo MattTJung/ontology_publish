@@ -7,6 +7,10 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ex: <http://example.org/shapes#> .
 
+ex:Target rdf:type owl:Restriction ;
+		  owl:onProperty rdfs:isDefinedBy ;
+		  owl:hasValue <https://w3id.org/pmd/ont_pub_tmplt> .
+
 ex:TermEditorPattern a sh:PropertyShape ;
 	sh:path obo:IAO_0000117 ;
     sh:pattern "^PERSON:(.*)$" ;
@@ -44,7 +48,7 @@ ex:CurationStatusPattern a sh:PropertyShape ;
 	sh:minCount 1 .
 
 ex:PatternClassesProperties a sh:NodeShape ;
-	sh:targetClass owl:Class, owl:ObjectProperty ;
+	sh:targetClass ex:Target, owl:ObjectProperty ;
 	sh:property
     	ex:DefinitionPattern ,
         ex:LabelPattern ,
