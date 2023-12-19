@@ -19,6 +19,7 @@ jobs:
       run: |
            pip install pyshacl
            python3 -m pyshacl -f turtle -o ./out_shacl_report.ttl -s main/shapes.ttl out_ontology-reasoned.ttl
+           cat ./out_shacl_report.ttl
     - name: Keep report as artifact
       if: ${{ failure() }}
       uses: actions/upload-artifact@v3

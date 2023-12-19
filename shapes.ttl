@@ -4,6 +4,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ex: <http://example.org/shapes#> .
 
 ex:TermEditorPattern a sh:PropertyShape ;
@@ -12,7 +13,22 @@ ex:TermEditorPattern a sh:PropertyShape ;
 	sh:description "Make sure that \"term editor\" (IAO_0000117) is used with \"PERSON:*\""@en .
 
 ex:DefinitionPattern a sh:PropertyShape ;
-	sh:path skos:definition ;
+	sh:path [
+        sh:alternativePath ( skos:definition rdfs:comment )
+    ] ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedValueShape [
+		sh:datatype rdf:langString ;
+		sh:languageIn (
+			"en"
+		) ;
+	] ;
+	sh:uniqueLang true .
+
+ex:LabelPattern a sh:PropertyShape ;
+	sh:path [
+        sh:alternativePath ( skos:prefLabel rdfs:label )
+    ] ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedValueShape [
 		sh:datatype rdf:langString ;
@@ -24,62 +40,61 @@ ex:DefinitionPattern a sh:PropertyShape ;
 
 ex:CurationStatusPattern a sh:PropertyShape ;
 	sh:path obo:IAO_0000114 ;
+    sh:class obo:IAO_0000078 ;
 	sh:minCount 1 .
 
-ex:PatternClasses a sh:NodeShape ;
-	sh:targetClass owl:Class ;
+ex:PatternClassesProperties a sh:NodeShape ;
+	sh:targetClass owl:Class, owl:ObjectProperty ;
 	sh:property
-    	ex:DefinitionPattern,
-		ex:ReqLabels,
-		ex:CurationStatusPattern,
-        ex:TermEditorPattern.
+    	ex:DefinitionPattern ,
+        ex:LabelPattern ,
+		ex:CurationStatusPattern ,
+        ex:TermEditorPattern .
 
-ex:RdfsLabelPattern a sh:PropertyShape ;
-	sh:and ( 
-		[
-			sh:path rdfs:label ;
-			sh:qualifiedMinCount 1 ;
-			sh:qualifiedValueShape [
-				sh:datatype rdf:langString ;
-				sh:languageIn (
-					"en"
-				) ;
-			] ;
-			sh:uniqueLang true ;
-		] 
-		[
-			sh:path rdfs:label ;
-			sh:minCount 1 ;
-		]
-	) .
-
-ex:SkosLabelPattern a sh:PropertyShape ;
-	sh:and ( 
-		[
-			sh:path skos:prefLabel ;
-			sh:qualifiedMinCount 1 ;
-			sh:qualifiedValueShape [
-				sh:datatype rdf:langString ;
-				sh:languageIn (
-					"en"
-				) ;
-			] ;
-			sh:uniqueLang true ;
-		] 
-		[
-			sh:path skos:prefLabel ;
-			sh:minCount 1 ;
-		]
-	) .
-
-ex:ReqLabels a sh:PropertyShape ;
-	sh:or ( ex:RdfsLabelPattern ex:SkosLabelPattern ) ;
-	sh:name "Requirements for Labels"@en ;
-	sh:message "Requirements for Labels not met, at least one english rdfs:label or one english skos:prefLabel must be present."@en .
-
-ex:PatternObjectProperties a sh:NodeShape ;
-	sh:targetClass owl:ObjectProperty ;
-	sh:property ex:DefinitionPattern ,
-				ex:ReqLabels ,
-				ex:CurationStatusPattern , 
-				ex:TermEditorPattern .
+ex:PatternOntology a sh:NodeShape ;
+    sh:targetClass owl:Ontology ;
+    sh:property
+        [
+            sh:path dcterms:title ;
+            sh:minCount 1 ;
+            sh:uniqueLang true ;
+        ] ,
+        [
+            sh:path dcterms:created ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:pattern "^\\d{4}-\\d{2}-\\d{2}$" ;
+        ] ,
+        [
+            sh:path dcterms:license ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRIOrLiteral ;
+        ] ,
+        [
+            sh:path dcterms:creator ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRIOrLiteral ;
+        ] ,
+        [
+            sh:path owl:versionInfo ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:pattern "^\\d+\\.\\d+\\.\\d+$" ;
+        ] ,
+        [
+            sh:path owl:versionIRI ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+        ] ,
+        [
+            sh:path rdfs:comment ;
+            sh:minCount 1 ;
+            sh:uniqueLang true ;
+        ] ,
+        [
+            sh:path dcterms:bibliographicCitation ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+        ] .
