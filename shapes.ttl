@@ -51,7 +51,7 @@ ex:CurationStatusPattern a sh:PropertyShape ;
 ex:PatternClasses a sh:NodeShape ;
 	sh:targetClass owl:Class ;
 	sh:property ex:DefinitionPattern , 
-				sh:or [ ex:LabelPattern , ex:PrefLabelPattern ] ,
+				sh:or ( ex:LabelPattern ex:PrefLabelPattern ) ,
 				ex:CurationStatusPattern , 
 				ex:TermEditorPattern .
 
