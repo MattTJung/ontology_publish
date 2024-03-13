@@ -1,0 +1,23 @@
+name: develop_multiontofiles Workflow
+
+on:
+  push:
+    branches:
+    - develop_multiontofiles
+jobs:
+  combine_onto_files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          path: combine_onto_files
+      - name: combine ontology files and remove obsolete imports
+        run: |
+             python -m pip install rdflib
+             python combine_onto_files/.github/workflows/combine_onto_files.py -o combine_onto_files/combined.ttl combine_onto_files/ontology.ttl combine_onto_files/moduleA.ttl combine_onto_files/moduleB.ttl
+      - name: generate artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined.ttl
+          path: combine_onto_files/combined.ttl
