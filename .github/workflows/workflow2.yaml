@@ -22,7 +22,7 @@ jobs:
              python combine_onto_files/.github/workflows/generate_oops_request_content.py -o out/oops_request.xml -i out/combined.rdf
       - name: call oops api
         run: |
-             curl -o out/oops_response.xml -X POST -H "Content-Type: application/xml" -d @out/oops_request.xml http://oops.linkeddata.es/rest
+             curl -o out/oops_response.xml -X POST -L -H "Content-Type: application/xml" -d @out/oops_request.xml https://oops.linkeddata.es/rest
       - name: generate artifact
         uses: actions/upload-artifact@v4
         with:
