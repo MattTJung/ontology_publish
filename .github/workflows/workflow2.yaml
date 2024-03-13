@@ -27,7 +27,7 @@ jobs:
         run: |
              mkdir pages
              mkdir pages/oops_report
-             cp combine_onto_files/.github/workflows/oops_report/. pages/oops_report
+             cp combine_onto_files/.github/workflows/oops_report/* pages/oops_report
              mv pages/oops_report/show_oops_response.html pages/oops_report/index.html
              cp out/oops_response.xml pages/oops_report
       - name: generate artifact
