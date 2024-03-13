@@ -8,14 +8,14 @@ def generate_request_content(input_path):
     with open(input_path, 'r', encoding='utf-8') as f:
         rdfcontent = f.read()
 
-    xml_str = f"""<?xml version="1.0" encoding="UTF-8"?>\n
-            <OOPSRequest>\n
-            <OntologyURI></OntologyURI>\n
-            <OntologyContent><![CDATA[{rdfcontent}]]></OntologyContent>\n
-            <Pitfalls></Pitfalls>\n
-            <OutputFormat>XML</OutputFormat>\n
-            </OOPSRequest>
-            """
+    xml_str = f"""<?xml version="1.0" encoding="UTF-8"?>
+<OOPSRequest>
+<OntologyURI></OntologyURI>
+<OntologyContent><![CDATA[{rdfcontent}]]></OntologyContent>
+<Pitfalls></Pitfalls>
+<OutputFormat>XML</OutputFormat>
+</OOPSRequest>
+"""
     return xml_str
 
 if __name__ == '__main__':
