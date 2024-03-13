@@ -32,7 +32,7 @@ if __name__ == '__main__':
         '-o', '--out', type=str, default='combined.ttl', help='Output file path'
     )
     parser.add_argument(
-        'file', type=str, required=True, nargs='*', help='Ontology files to combine'
+        'file', type=str, nargs='*', help='Ontology files to combine'
     )
     args = parser.parse_args()
 
