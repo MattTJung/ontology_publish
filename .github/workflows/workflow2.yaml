@@ -38,7 +38,7 @@ jobs:
       - name: generate artifact
         uses: actions/upload-artifact@v4
         with:
-          name: gh-pages-new
+          name: gh-pages
           path: pages
       - name: publish to github-pages
         if: success()
