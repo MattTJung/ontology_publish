@@ -1,30 +1,22 @@
 """Helper tool to generate a valid oops request xml file."""
-import xml.etree.ElementTree as ET
 import argparse
 
 def generate_request_content(input_path):
     """
-    Generate the request content by reading the input file at the
-    specified path and creating an XML data structure from the content. 
-
-    Parameters:
-    input_path (str): The path to the input file.
-
-    Returns:
-    xml.etree.ElementTree.ElementTree: The XML data structure representing the request content.
+    A function to generate the content for a request using the input path and return the XML string.
     """
     with open(input_path, 'r', encoding='utf-8') as f:
         rdfcontent = f.read()
 
-    tree = ET.ElementTree(ET.fromstring(f"""<?xml version="1.0" encoding="UTF-8"?>
-        <OOPSRequest>
-        <OntologyURI></OntologyURI>
-        <OntologyContent><![CDATA[{rdfcontent}]]></OntologyContent>
-        <Pitfalls></Pitfalls>
-        <OutputFormat>XML</OutputFormat>
-        </OOPSRequest>
-    """))
-    return tree
+    xml_str = f"""<?xml version="1.0" encoding="UTF-8"?>\n
+            <OOPSRequest>\n
+            <OntologyURI></OntologyURI>\n
+            <OntologyContent><![CDATA[{rdfcontent}]]></OntologyContent>\n
+            <Pitfalls></Pitfalls>\n
+            <OutputFormat>XML</OutputFormat>\n
+            </OOPSRequest>
+            """
+    return xml_str
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -35,4 +27,5 @@ if __name__ == '__main__':
         '-o', '--output', type=str, default='oops_request_content.xml', help='Output file path'
     )
     args = parser.parse_args()
-    generate_request_content(args.input).write(args.output)
+    with open(args.output, 'w', encoding='utf-8') as fo:
+        fo.write(generate_request_content(args.input))
