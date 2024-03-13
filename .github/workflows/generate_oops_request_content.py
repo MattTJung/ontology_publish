@@ -16,7 +16,7 @@ def generate_request_content(input_path):
     with open(input_path, 'r', encoding='utf-8') as f:
         rdfcontent = f.read()
 
-    xmldata = ET.fromstring("""<?xml version="1.0" encoding="UTF-8"?>
+    tree = ET.ElementTree(ET.fromstring("""<?xml version="1.0" encoding="UTF-8"?>
         <OOPSRequest>
         <OntologyURI></OntologyURI>
         <OntologyContent><![CDATA[ 
@@ -25,8 +25,8 @@ def generate_request_content(input_path):
         <Pitfalls></Pitfalls>
         <OutputFormat>XML</OutputFormat>
         </OOPSRequest>
-    """)
-    return xmldata
+    """))
+    return tree
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
