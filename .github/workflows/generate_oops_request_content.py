@@ -1,7 +1,6 @@
 """Helper tool to generate a valid oops request xml file."""
-import xml
+import xml.etree.ElementTree as ET
 import argparse
-#import rdflib
 
 def generate_request_content(input_path):
     """
@@ -12,12 +11,12 @@ def generate_request_content(input_path):
     input_path (str): The path to the input file.
 
     Returns:
-    xml.etree.ElementTree.Element: The XML data structure representing the request content.
+    xml.etree.ElementTree.ElementTree: The XML data structure representing the request content.
     """
     with open(input_path, 'r', encoding='utf-8') as f:
         rdfcontent = f.read()
 
-    xmldata = xml.etree.ElementTree.fromstring("""
+    xmldata = ET.fromstring("""
         <?xml version="1.0" encoding="UTF-8"?>
         <OOPSRequest>
         <OntologyURI></OntologyURI>
