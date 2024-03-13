@@ -13,7 +13,7 @@
                            dcterms:creator <https://orcid.org/0000-0000-0000-0000> ; # alt.: provide the name as string literal e.g. "John Doe"
                            dcterms:created "2023-12-15" ;
                            owl:versionInfo "1.0.0" ;
-                           owl:versionIRI <https://w3id.org/pmd/ont_pub_tmplt/1.0.0> ;
+                           owl:versionIRI <https://w3id.org/pmd/ont_pub_tmplt/moduleA/1.0.0> ;
                            rdfs:comment """This is an example ontology to help PMD partner projects to get an overview over the formal requirements imposed by HAP 4. 
                                            It's meant as a blueprint for updating the partner projects ontologies and thus does not carry any relevant concepts. This 
                                            file is related to the github repository https://github.com/materialdigital/ontology_publication_template where there is 
