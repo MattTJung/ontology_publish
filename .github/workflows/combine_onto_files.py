@@ -32,6 +32,9 @@ if __name__ == '__main__':
         '-o', '--out', type=str, default='combined.ttl', help='Output file path'
     )
     parser.add_argument(
+        '--rdfout', type=str, default='combined.rdf', help='Output RDF file path'
+    )
+    parser.add_argument(
         'file', type=str, nargs='*', help='Ontology files to combine'
     )
     args = parser.parse_args()
@@ -39,3 +42,5 @@ if __name__ == '__main__':
     g = combine_graph(args.file)
     with open(args.out, 'w', encoding='utf-8') as f:
         f.write(g.serialize(format='turtle'))
+    with open(args.rdfout, 'w', encoding='utf-8') as f:
+        f.write(g.serialize(format='xml'))
