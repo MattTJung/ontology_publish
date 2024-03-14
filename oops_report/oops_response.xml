@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oops:OOPSResponse xmlns:oops="http://www.oeg-upm.net/oops">
+<oops:Pitfall>
+<oops:Code>P04</oops:Code><oops:Name>Creating unconnected ontology elements</oops:Name>
+<oops:Description>Ontology elements (classes, object properties and datatype properties) are created isolated, with no relation to the rest of the ontology.	</oops:Description>
+<oops:Importance>Minor</oops:Importance>
+<oops:NumberAffectedElements>2</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleA/ExampleClassStubA</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleB/ExampleClassStubB</oops:AffectedElement>
+</oops:Affects>
+</oops:Pitfall>
+<oops:Pitfall>
+<oops:Code>P10</oops:Code><oops:Name>Missing disjointness</oops:Name>
+<oops:Description>The ontology lacks disjoint axioms between classes or between properties that should be defined as disjoint. This pitfall is related with the guidelines provided in [6], [2] and [7].	</oops:Description>
+<oops:Importance>Important</oops:Importance>
+</oops:Pitfall>
+<oops:NumberAffectedElements>1</oops:NumberAffectedElements>
+<oops:Pitfall>
+<oops:Code>P12</oops:Code><oops:Name>Equivalent properties not explicitly declared</oops:Name>
+<oops:Description>The ontology lacks information about equivalent properties (owl:equivalentProperty) in the cases of duplicated relationships and/or attributes.	</oops:Description>
+<oops:Importance>Important</oops:Importance>
+<oops:NumberAffectedElements>2</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:MightBeEquivalentProperty>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleB/exampleInverseRelationA</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleA/exampleInverseRelationA</oops:AffectedElement>
+</oops:MightBeEquivalentProperty>
+<oops:MightBeEquivalentProperty>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleA/exampleRelationA</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleB/exampleRelationA</oops:AffectedElement>
+</oops:MightBeEquivalentProperty>
+</oops:Affects>
+</oops:Pitfall>
+<oops:Pitfall>
+<oops:Code>P13</oops:Code><oops:Name>Inverse relationships not explicitly declared</oops:Name>
+<oops:Description>This pitfall appears when any relationship (except for those that are defined as symmetric properties using owl:SymmetricProperty) does not have an inverse relationship (owl:inverseOf) defined within the ontology.	</oops:Description>
+<oops:Importance>Minor</oops:Importance>
+<oops:NumberAffectedElements>4</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:MightBeInverse>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleA/exampleRelationA</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleA/exampleInverseRelationA</oops:AffectedElement>
+</oops:MightBeInverse>
+<oops:MightBeInverse>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleB/exampleInverseRelationA</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleB/exampleRelationA</oops:AffectedElement>
+</oops:MightBeInverse>
+</oops:Affects>
+</oops:Pitfall>
+<oops:Pitfall>
+<oops:Code>P34</oops:Code><oops:Name>Untyped class</oops:Name>
+<oops:Description>An ontology element is used as a class without having been explicitly declared as such using the primitives owl:Class or rdfs:Class. This pitfall is related with the common problems listed in [8].	</oops:Description>
+<oops:Importance>Important</oops:Importance>
+<oops:NumberAffectedElements>2</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleA/ExampleClassStub</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleB/ExampleClassStub</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleA/ExampleClassStub</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleB/ExampleClassStub</oops:AffectedElement>
+</oops:Affects>
+</oops:Pitfall>
+<oops:Pitfall>
+<oops:Code>P35</oops:Code><oops:Name>Untyped property</oops:Name>
+<oops:Description>An ontology element is used as a property without having been explicitly declared as such using the primitives rdf:Property, owl:ObjectProperty or owl:DatatypeProperty. This pitfall is related with the common problems listed in [8].	</oops:Description>
+<oops:Importance>Important</oops:Importance>
+<oops:NumberAffectedElements>2</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleA/exampleRelation</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleB/exampleRelation</oops:AffectedElement>
+</oops:Affects>
+</oops:Pitfall>
+<oops:Suggestion>
+<oops:Name>SUGGESTION: symmetric or transitive object properties.</oops:Name>
+<oops:Description>The domain and range axioms are equal for each of the following object properties. Could they be symmetric or transitive?</oops:Description>
+<oops:NumberAffectedElements>4</oops:NumberAffectedElements>
+<oops:Affects>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleA/exampleRelationA</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleB/exampleInverseRelationA</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleA/exampleInverseRelationA</oops:AffectedElement>
+<oops:AffectedElement>https://w3id.org/pmd/ont_pub_tmplt/moduleB/exampleRelationA</oops:AffectedElement>
+</oops:Affects>
+</oops:Suggestion>
+</oops:OOPSResponse>

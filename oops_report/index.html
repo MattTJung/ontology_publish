@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>OOPS! Report</title>
+		<!-- Bootstrap and JQuery imports -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+		<!-- Import js for loading xml data and generating oops report content -->
+        <script type="text/javascript" src="./show_oops_response.js"></script>
+		
+		<!-- additional styles -->
+        <style>
+            .bg-important {
+                background-color: #ff8000 !important;
+            }
+            .badge-float {
+                float: right;
+            }
+            span.float {
+                float: right;
+                margin-right: 1em;
+            }
+            h2 {
+                margin-top: 1rem;
+            }
+            p.indent {
+                margin-left: 2em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div>
+                <h1 id="headerTitle">OOPS! Results</h1>
+            </div>
+
+            <div>
+                <h2>Pitfalls</h2>
+                <div id="pitfalls" class="accordion"></div>
+            </div>
+
+            <div>
+                <h2>Suggestions</h2>
+                <div id="suggestions" class="accordion"></div>
+            </div>
+
+            <div>
+                <h2>Conformance badge</h2>
+                <p>According to the highest importance level of pitfall found in your ontology the conformace bagde suggested is "<span id="conformanceBadgeText">Pitfall free</span>".</p>
+                <img id="conformanceBadgeImage" src="https://oops.linkeddata.es/images/conformance/oops_free.png" alt="No pitfalls were found" height="69">
+            </div>
+
+            <div>
+                <h2>References</h2>
+                <div class="accordion" id="References">
+                    <div class="accordion-item">
+                    	<h3 class="accordion-header" id="panelsStayOpen-headingR1">
+                        	<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR1" aria-expanded="false" aria-controls="panelsStayOpen-collapseR1">
+                            	[1] Aguado-De Cea, G., Montiel-Ponsoda, E., Poveda-Villalón, M., and Giraldo-Pasmin, O.X. (2015).
+							</button>
+                    	</h3>
+						<div id="panelsStayOpen-collapseR1" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR1">
+							<div class="accordion-body">
+								Lexicalizing Ontologies: The issues behind the labels. In Multimodal communication in the 21st century: Professional and academic challenges. 33rd Conference of the Spanish Association of Applied Linguistics (AESLA), XXXIII AESLA.
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h3 class="accordion-header" id="panelsStayOpen-headingR2">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR2" aria-expanded="false" aria-controls="panelsStayOpen-collapseR2">
+								[2] Noy, N. F., McGuinness, D. L., et al. (2001).</button>
+						</h3>
+						<div id="panelsStayOpen-collapseR2" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR2">
+							<div class="accordion-body">
+									Ontology development 101: A guide to creating your first ontology.
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h3 class="accordion-header" id="panelsStayOpen-headingR3">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR3" aria-expanded="false" aria-controls="panelsStayOpen-collapseR3">
+								[3] Gómez-Pérez, A. (1999).</button>
+						</h3>
+						<div id="panelsStayOpen-collapseR3" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR3">
+							<div class="accordion-body">
+									Evaluation of Taxonomic Knowledge in Ontologies and Knowledge Bases. Proceedings of the Banff Knowledge Acquisition for Knowledge-Based Systems Workshop. Alberta, Canada. 
+									</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h3 class="accordion-header" id="panelsStayOpen-headingR4">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR4" aria-expanded="false" aria-controls="panelsStayOpen-collapseR4">
+								[4] Montiel-Ponsoda, E., Vila Suero, D., Villazón-Terrazas, B., Dunsire, G., Escolano Rodríguez, E., Gómez-Pérez, A. (2011).</button>
+						</h3>
+						<div id="panelsStayOpen-collapseR4" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR4">
+							<div class="accordion-body">
+									Style guidelines for naming and labeling ontologies in the multilingual web. 
+									</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h3 class="accordion-header" id="panelsStayOpen-headingR5">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR5" aria-expanded="false" aria-controls="panelsStayOpen-collapseR5">
+								[5] Vrandecic, D. (2010).</button>
+						</h3>
+						<div id="panelsStayOpen-collapseR5" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR5">
+							<div class="accordion-body">
+									Ontology Evaluation. PhD thesis. 
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h3 class="accordion-header" id="panelsStayOpen-headingR6">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR6" aria-expanded="false" aria-controls="panelsStayOpen-collapseR6">
+								[6] Gómez-Pérez, A. (2004). </button>
+						</h3>
+						<div id="panelsStayOpen-collapseR6" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR6">
+							<div class="accordion-body">
+								Ontology evaluation. In Handbook on ontologies, pages 251-273. Springer.	
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h3 class="accordion-header" id="panelsStayOpen-headingR7">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR7" aria-expanded="false" aria-controls="panelsStayOpen-collapseR7">
+								[7] Rector, A., Drummond, N., Horridge, M., Rogers, J., Knublauch, H., Stevens, R., Wang, H., and Wroe, C. (2004). </button>
+						</h3>
+						<div id="panelsStayOpen-collapseR7" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR7">
+							<div class="accordion-body">
+							Owl pizzas: Practical experience of teaching owl-dl: Common errors &amp; common patterns. In Engineering Knowledge in the Age of the Semantic Web, pages 63-81. Springer. 
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h3 class="accordion-header" id="panelsStayOpen-headingR8">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR8" aria-expanded="false" aria-controls="panelsStayOpen-collapseR8">
+								[8] Hogan, A., Harth, A., Passant, A., Decker, S., and Polleres, A. (2010).</button>
+						</h3>
+						<div id="panelsStayOpen-collapseR8" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR8">
+							<div class="accordion-body">
+							Weaving the pedantic web. In Proceedings of the WWW2010 Workshop on Linked Data on the Web, LDOW 2010, Raleigh, USA, April 27, 2010. 
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h3 class="accordion-header" id="panelsStayOpen-headingR9">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR9" aria-expanded="false" aria-controls="panelsStayOpen-collapseR9">
+								[9] Archer, P., Goedertier, S., and Loutas, N. (2012).</button>
+						</h3>
+						<div id="panelsStayOpen-collapseR9" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR9">
+							<div class="accordion-body">
+									D7. 1.3-study on persistent URIs, with identification of best practices and recommendations on the topic for the Mss and the EC. PwC EU Services. 
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h3 class="accordion-header" id="panelsStayOpen-headingR10">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR10" aria-expanded="false" aria-controls="panelsStayOpen-collapseR10">
+								[10] Bernes-Lee Tim. (2006).</button>
+						</h3>
+						<div id="panelsStayOpen-collapseR10" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR10">
+							<div class="accordion-body">
+							“Linked Data - Design issues”. http://www.w3.org/DesignIssues/LinkedData.html 
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h3 class="accordion-header" id="panelsStayOpen-headingR11">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR11" aria-expanded="false" aria-controls="panelsStayOpen-collapseR11">
+								[11] Heath, T. and Bizer, C. (2011).</button>
+						</h3>
+						<div id="panelsStayOpen-collapseR11" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR11">
+							<div class="accordion-body">
+								Linked Data: Evolving the Web into a Global Data Space. Morgan &amp; Claypool, 1st edition.	
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h3 class="accordion-header" id="panelsStayOpen-headingR12">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseR12" aria-expanded="false" aria-controls="panelsStayOpen-collapseR12">
+								[12] Vatant, B. (2012).</button>
+						</h3>
+						<div id="panelsStayOpen-collapseR12" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingR12">
+							<div class="accordion-body">
+								Is your linked data vocabulary 5-star?. http://bvatant.blogspot.fr/2012/02/is-your-linked-data-vocabulary-5-star_9588.html 
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+
+            <div>
+                <h2>Notice</h2>
+                <div>
+                    <p>This display is based on the <a href="https://oops.linkeddata.es/index.jsp">OOPS! OntOlogy Pitfall Scanner!</a> by the Ontology Engineering Group of the Computer Science School at Universidad Politécnica de Madrid (UPM). It renders a XML result as provided by the OOPS! service. (see <a href="https://oops.linkeddata.es/webservice.html">https://oops.linkeddata.es/webservice.html</a>)</p>
+                    <p class="indent">Poveda-Villalón, María; Gómez-Pérez, Asunción; and Suárez-Figueroa, Mari Carmen. "OOPS!(Ontology Pitfall Scanner!): An on-line tool for ontology evaluation." International Journal on Semantic Web and Information Systems (IJSWIS) 10.2 (2014): 7-34.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
