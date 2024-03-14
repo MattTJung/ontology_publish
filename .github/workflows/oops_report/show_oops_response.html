@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
         <title>OOPS! Report</title>
+		<!-- Bootstrap and JQuery imports -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
-        <!-- **************************************************************************************** 
-        !   connect your main.js script to hmtl                                                     *
-        !   add version of jquery                                                                   *
-        ! *************************************************************************************** -->
-        <!--<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
-        <!-- javascript reference -->
+		<!-- Import js for loading xml data and generating oops report content -->
         <script type="text/javascript" src="./show_oops_response.js"></script>
+		
+		<!-- additional styles -->
         <style>
             .bg-important {
                 background-color: #ff8000 !important;
@@ -201,7 +196,7 @@
             <div>
                 <h2>Notice</h2>
                 <div>
-                    <p>This evaluation uses the OOPS! OntOlogy Pitfall Scanner! by the Ontology Engineering Group of the Computer Science School at Universidad Politécnica de Madrid (UPM)</p>
+                    <p>This display is based on the <a href="https://oops.linkeddata.es/index.jsp">OOPS! OntOlogy Pitfall Scanner!</a> by the Ontology Engineering Group of the Computer Science School at Universidad Politécnica de Madrid (UPM). It renders a XML result as provided by the OOPS! service. (see <a href="https://oops.linkeddata.es/webservice.html">https://oops.linkeddata.es/webservice.html</a></p>
                     <p class="indent">Poveda-Villalón, María; Gómez-Pérez, Asunción; and Suárez-Figueroa, Mari Carmen. "OOPS!(Ontology Pitfall Scanner!): An on-line tool for ontology evaluation." International Journal on Semantic Web and Information Systems (IJSWIS) 10.2 (2014): 7-34.</p>
                 </div>
             </div>
