@@ -1,23 +1,16 @@
 $(document).ready(function () {
-
-    $("#headerTitle").hide(300).show(1500);
-    // calling show food menu function
-    showFoodMenu();
-    
-    // If you want to fetch data from the file 
-    // call fetch data function instead of showFoodMenu
-    // fetchData()
+    showOOPSresult();
 });
 
-function fetchData() {
+/*function fetchData() {
     setTimeout(function () {
-        showFoodMenu();
+        showOOPSresult();
         // recursive call
         fetchData();
     }, 3000);
-}
+}*/
 
-function showFoodMenu() {
+function showOOPSresult() {
     $.ajax({
         url: "./oops_response.xml",
         type: "GET",
@@ -37,7 +30,7 @@ function showFoodMenu() {
                 var _code = $(this).find("oops\\:Code").text();
                 console.log(_code)
                 
-                var _name = 'Name: ' + $(this).find("oops\\:Name").text();
+                var _name = $(this).find("oops\\:Name").text();
                 var _description = $(this).find("oops\\:Description").text();
                 var _importance = $(this).find("oops\\:Importance").text();
                 var _numberAffectedElements = $(this).find("oops\\:NumberAffectedElements").text();
