@@ -2,14 +2,12 @@ $(document).ready(function () {
     showOOPSresult();
 });
 
-/*function fetchData() {
-    setTimeout(function () {
-        showOOPSresult();
-        // recursive call
-        fetchData();
-    }, 3000);
-}*/
-
+/**
+ * Perform an AJAX request to retrieve and process XML data containing information about pitfalls and suggestions. 
+ *
+ * @param {void} 
+ * @return {void} 
+ */
 function showOOPSresult() {
     $.ajax({
         url: "./oops_response.xml",
